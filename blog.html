@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой блог</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Мой блог</h1>
+        <p>Добро пожаловать в мир технологий и творчества</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Главная</a></li>
+            <li><a href="#about">О блоге</a></li>
+            <li><a href="#articles">Статьи</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <article class="blog-post">
+            <header>
+            <h2>Введение в CSS Grid</h2>
+            <time datetime="2024-01-15">15 Января 2024</time>
+            </header>
+            <p>CSS Grid - это мощная система макетов для создания двумерных сеток в CSS. В отличие от Flexbox, который предназначен для одномерных макетов. 
+            <p>Основные преимущества CSS Grid включают возможность создания адаптивных макетов без использования медиа-запросов, равномерное расположение элементов и гибкость в настройке размеров колонок и строк.</p>
+            <footer>
+                <span>Автор: Грабаровский Дмитрий</span>
+                <a href="#read-more">Читать далее</a>
+            </footer>
+        </article>
+
+        <article class="blog-post">
+            <header>
+                <h2>Семантическая разметка HTML5</h2>
+                <time datetime="2024-01-10">10 Января 2024</time>
+            </header>
+            <p>Семантические теги HTML5 помогают поисковым системам и скринридерам лучше понять структуру и содержание веб-страниц. Такие теги как header, nav, main, article, aside и footer делают код более читаемым и доступным.</p>
+            <p>Использование семантической разметки улучшает SEO, повышает стилизацию и делает веб-сайты более доступными для людей с ограниченными возможностями. Это основа современного веб-разработки.</p>
+            <footer>
+                <span>Автор: Грабаровский Дмитрий</span>
+                <a href="#read-more">Читать далее</a>
+            </footer>
+        </article>
+    </main>
+
+    <aside>
+        <section class="sidebar-section">
+            <h3>Популярные теги</h3>
+            <ul class="tag-list">
+                <li><a href="#css">CSS</a></li>
+                <li><a href="#html">HTML</a></li>
+                <li><a href="#javascript">JavaScript</a></li>
+                <li><a href="#webdev">Веб-разработка</a></li>
+                <li><a href="#design">Дизайн</a></li>
+            </ul>
+        </section>
+
+        <section class="sidebar-section">
+            <h3>Архив</h3>
+            <ul class="archive-list">
+                <li><a href="#january-2024">Январь 2024</a></li>
+                <li><a href="#december-2023">Декабрь 2023</a></li>
+                <li><a href="#november-2023">Ноябрь 2023</a></li>
+            </ul>
+        </section>
+
+        <section class="sidebar-section">
+            <h3>Подписка</h3>
+            <p>Подпишитесь на обновления блога и получите новые статьи прямо на вашу почту!</p>
+            <form class="subscribe-form">
+                <input type="email" placeholder="Ваш email" required>
+                <button type="submit">Подписаться</button>
+            </form>
+        </section>
+    </aside>
+
+    <footer>
+        <p>&copy; 2024 Мой блог. Все права защищены.</p>
+        <div class="footer-links">
+            <a href="#privacy">Политика конфиденциальности</a>
+            <a href="#terms">Условия использования</a>
+            <a href="#sitemap">Карта сайта</a>
+        </div>
+    </footer>
+</body>
+</html>
