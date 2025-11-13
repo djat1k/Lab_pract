@@ -1,0 +1,15 @@
+{
+  "name": "lb3",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "sass": "^1.79.0",
+    "less": "^4.1.4"
+  },
+  "scripts": {
+    "build:sass": "sass styles/style.scss:styles/style.css --no-source-map",
+    "watch:sass": "sass --watch styles/style.scss:styles/style.css --no-source-map",
+    "build:less": "lessc styles/site.less styles/site.css",
+    "watch:less": "lessc --watch styles/site.less styles/site.css"
+  }
+}

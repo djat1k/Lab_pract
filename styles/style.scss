@@ -1,0 +1,72 @@
+@import 'variables';
+body {
+ font-family: Arial, sans-serif;
+ color: $text-color;
+ background-color: #f8f8f8;
+ .card {
+ border: 1px solid $main-color;
+ border-radius: 8px;
+ padding: 1rem;
+ @media (max-width: 600px) {
+ padding: 0.5rem;
+ }
+ }
+}
+
+// Profile block: avatar, name, button
+.profile {
+ display: flex;
+ align-items: center;
+ gap: $profile-gap;
+ background: $profile-bg;
+ border: 1px solid $main-color;
+ border-radius: $profile-radius;
+ padding: $profile-gap;
+
+ &__avatar {
+  width: $profile-avatar-size;
+  height: $profile-avatar-size;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid $main-color;
+ }
+
+ &__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  &-name {
+   font-weight: 700;
+   color: $text-color;
+  }
+
+  &-role {
+   color: darken($text-color, 20%);
+   font-size: 0.9rem;
+  }
+ }
+
+ &__action {
+  margin-left: auto;
+
+  .btn {
+   background: $main-color;
+   color: #fff;
+   border: none;
+   padding: 0.5rem 1rem;
+   border-radius: 8px;
+
+   &:hover {
+    background: darken($main-color, 8%);
+   }
+  }
+ }
+}
+
+@media (max-width: 480px) {
+ .profile {
+  flex-direction: column;
+  align-items: flex-start;
+ }
+}

@@ -1,0 +1,67 @@
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f8f8f8;
+}
+body .card {
+  border: 1px solid #4CAF50;
+  border-radius: 8px;
+  padding: 1rem;
+}
+@media (max-width: 600px) {
+  body .card {
+    padding: 0.5rem;
+  }
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #ffffff;
+  border: 1px solid #4CAF50;
+  border-radius: 12px;
+  padding: 1rem;
+}
+.profile__avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #4CAF50;
+}
+.profile__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.profile__info-name {
+  font-weight: 700;
+  color: #333;
+}
+.profile__info-role {
+  color: black;
+  font-size: 0.9rem;
+}
+.profile__action {
+  margin-left: auto;
+}
+.profile__action .btn {
+  background: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+.profile__action .btn:hover {
+  background: rgb(63.6462151394, 146.5537848606, 66.9960159363);
+}
+
+@media (max-width: 480px) {
+  .profile {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

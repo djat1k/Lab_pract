@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сайт‑визитка — LESS</title>
+  <link rel="stylesheet" href="styles/site.css">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">Developer</div>
+      <nav>
+        <ul>
+          <li><a href="#about">Обо мне</a></li>
+          <li><a href="#projects">Проекты</a></li>
+          <li><a href="#contact">Контакты</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" type="button" class="theme-toggle">Тема</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div>
+        <h1 class="hero__title">Привет! Я фронтенд‑разработчик</h1>
+        <p class="hero__subtitle">Делаю быстрые и удобные интерфейсы. Ниже — контакты и примеры работ.</p>
+        <div>
+          <a class="btn btn--primary" href="#contact">Связаться</a>
+          <a class="btn btn--outline" href="#projects">Смотреть проекты</a>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <h3 id="about">Обо мне</h3>
+          <p>Опыт в вёрстке, React, адаптивном дизайне и работе с препроцессорами (LESS/SASS).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="card">
+        <h3>Проекты</h3>
+        <p>Турун тудун.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="card">
+        <h3>Контакты</h3>
+        <form class="contact-form">
+          <div>
+            <label for="name">Имя</label>
+            <input id="name" type="text" placeholder="Ваше имя">
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@example.com">
+          </div>
+          <div>
+            <label for="msg">Сообщение</label>
+            <textarea id="msg" rows="4" placeholder="Коротко о задаче"></textarea>
+          </div>
+          <div>
+            <button class="btn btn--secondary" type="submit">Отправить</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">© 2025 — Визитка на LESS</div>
+  </footer>
+
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+      var btn = document.getElementById('themeToggle');
+      if (btn) {
+        btn.addEventListener('click', function() {
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          if (isDark) {
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+          } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

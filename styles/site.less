@@ -1,0 +1,337 @@
+ellipse// Site business-card (визитка) LESS stylesheet
+// Variables
+@font-stack: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
+@primary-color: #2563eb; // blue-600
+@primary-color-700: #1d4ed8; // hover
+@secondary-color: #10b981; // emerald-500
+@secondary-color-700: #059669;
+@text-color: #111827; // gray-900
+@muted-text-color: #6b7280; // gray-500
+@bg-page: #ffffff;
+@bg-section: #f9fafb; // gray-50
+@border-color: #e5e7eb; // gray-200
+@focus-ring: #93c5fd; // blue-300
+
+@border-radius: 10px;
+@button-radius: 8px;
+@spacing-unit: 8px;
+@transition-fast: 160ms;
+
+// Breakpoints
+@screen-sm: 480px;
+@screen-md: 768px;
+@screen-lg: 1024px;
+@screen-xl: 1280px;
+
+// Dark theme palette (used in overrides)
+@dark-bg: #0b1220;
+@dark-bg-elevated: #111827; // gray-900
+@dark-text: #e5e7eb; // gray-200
+@dark-muted-text: #9ca3af; // gray-400
+@dark-border: #1f2937; // gray-800
+
+// Utility mixins
+.visually-hidden() {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.focus-ring() {
+  outline: 3px solid @focus-ring;
+  outline-offset: 2px;
+}
+
+// Button mixins
+.buttonBase() {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: @spacing-unit;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  user-select: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: @button-radius;
+  padding: (@spacing-unit * 1.25) (@spacing-unit * 2);
+  transition: background-color @transition-fast ease, color @transition-fast ease,
+    border-color @transition-fast ease, box-shadow @transition-fast ease,
+    transform @transition-fast ease;
+
+  &:focus-visible {
+    .focus-ring();
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &.is-loading {
+    pointer-events: none;
+    opacity: .8;
+  }
+
+  &[disabled],
+  &.is-disabled {
+    cursor: not-allowed;
+    opacity: .6;
+    filter: grayscale(.15);
+  }
+}
+
+.buttonVariant(@bg, @fg, @bgHover, @border: transparent) {
+  background-color: @bg;
+  color: @fg;
+  border-color: @border;
+
+  &:hover {
+    background-color: @bgHover;
+  }
+}
+
+// Shorthand mixin combining base + variant
+.button(@bg, @fg, @bgHover, @border: transparent) {
+  .buttonBase();
+  .buttonVariant(@bg, @fg, @bgHover, @border);
+}
+
+// Global/base styles
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: @font-stack;
+  color: @text-color;
+  background: @bg-page;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Theme: dark overrides
+html[data-theme="dark"] {
+  body {
+    color: @dark-text;
+    background: @dark-bg;
+  }
+
+  header.site-header,
+  footer.site-footer {
+    background: @dark-bg-elevated;
+    border-color: @dark-border;
+    color: @dark-muted-text;
+  }
+
+  header.site-header nav a {
+    color: @dark-muted-text;
+    &:hover {
+      background: fade(#ffffff, 6%);
+      color: @dark-text;
+    }
+  }
+
+  .card {
+    background: @dark-bg-elevated;
+    border-color: @dark-border;
+    box-shadow: 0 1px 2px 0 fade(#000, 65%);
+  }
+
+  form.contact-form input,
+  form.contact-form textarea {
+    background: @dark-bg;
+    border-color: @dark-border;
+    color: @dark-text;
+  }
+
+  .btn--outline {
+    .button(transparent, @dark-text, transparent, @dark-border);
+    &:hover {
+      border-color: lighten(@dark-border, 8%);
+      box-shadow: 0 1px 0 0 fade(#fff, 10%);
+      background: fade(#fff, 3%);
+    }
+  }
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: (@spacing-unit * 2);
+  padding-right: (@spacing-unit * 2);
+  max-width: 1100px;
+}
+
+header.site-header {
+  background: @bg-section;
+  border-bottom: 1px solid @border-color;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: (@spacing-unit * 2);
+    padding-bottom: (@spacing-unit * 2);
+    gap: (@spacing-unit * 2);
+  }
+
+  .brand {
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: .2px;
+  }
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: (@spacing-unit * 2);
+  }
+
+  nav a {
+    color: @muted-text-color;
+    text-decoration: none;
+    padding: (@spacing-unit * 1) (@spacing-unit * 1.5);
+    border-radius: 6px;
+
+    &:hover {
+      background: fade(@primary-color, 10%);
+      color: @text-color;
+    }
+  }
+}
+
+.hero {
+  padding: (@spacing-unit * 8) 0;
+  background: linear-gradient(180deg, fade(@primary-color, 8%), transparent);
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: (@spacing-unit * 4);
+    align-items: center;
+  }
+
+  .hero__title {
+    font-size: 32px;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .hero__subtitle {
+    color: @muted-text-color;
+    margin: (@spacing-unit * 2) 0 (@spacing-unit * 4);
+  }
+}
+
+// Buttons
+.btn { .buttonBase(); }
+.btn--primary { .button(@primary-color, #fff, @primary-color-700); }
+.btn--secondary { .button(@secondary-color, #072b22, @secondary-color-700); }
+.btn--outline {
+  .button(#ffffff, @text-color, #ffffff, @border-color);
+  &:hover {
+    border-color: darken(@border-color, 10%);
+    box-shadow: 0 1px 0 0 fade(@text-color, 10%);
+  }
+}
+
+// Theme toggle button
+.theme-toggle {
+  .buttonBase();
+  .button(transparent, @muted-text-color, fade(@primary-color, 8%), @border-color);
+  &:hover {
+    color: @text-color;
+  }
+}
+
+// Cards/sections
+.card {
+  background: #fff;
+  border: 1px solid @border-color;
+  border-radius: @border-radius;
+  padding: (@spacing-unit * 3);
+  box-shadow: 0 1px 2px 0 fade(#000, 6%);
+}
+
+section {
+  padding: (@spacing-unit * 6) 0;
+}
+
+footer.site-footer {
+  border-top: 1px solid @border-color;
+  background: @bg-section;
+  color: @muted-text-color;
+  padding: (@spacing-unit * 3) 0;
+  font-size: 14px;
+}
+
+// Forms (for contact block on a визитка)
+form.contact-form {
+  display: grid;
+  gap: (@spacing-unit * 2);
+
+  label {
+    font-weight: 600;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: (@spacing-unit * 1.5) (@spacing-unit * 2);
+    border-radius: 8px;
+    border: 1px solid @border-color;
+    background: #fff;
+    color: @text-color;
+
+    &:focus {
+      border-color: @primary-color;
+      box-shadow: 0 0 0 4px fade(@primary-color, 18%);
+      outline: none;
+    }
+  }
+}
+
+// Responsive media queries
+@media (min-width: @screen-sm) {
+  .hero .hero__title { font-size: 36px; }
+}
+
+@media (min-width: @screen-md) {
+  header.site-header .container { padding-top: (@spacing-unit * 3); padding-bottom: (@spacing-unit * 3); }
+  .hero .container { grid-template-columns: 1.2fr 0.8fr; }
+  .hero .hero__title { font-size: 42px; }
+  .hero .hero__subtitle { font-size: 18px; }
+}
+
+@media (min-width: @screen-lg) {
+  .container { max-width: 1200px; }
+  .hero { padding: (@spacing-unit * 10) 0; }
+  .hero .hero__title { font-size: 48px; }
+}
+
+@media (min-width: @screen-xl) {
+  .container { max-width: 1280px; }
+}
+
+// Example usage note:
+// <a class="btn btn--primary" href="#contact">Связаться</a>
+// <button class="btn btn--secondary">О компании</button>
+
+
