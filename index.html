@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лендинг – отзывы</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="page-header">
+        <div class="page-header__row">
+            <p class="page-header__title">Лабораторная работа №6</p>
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-pressed="false"
+            >
+                Тёмная тема
+            </button>
+        </div>
+    </header>
+
+    <section class="testimonials" aria-label="Отзывы клиентов">
+        <div class="testimonials__content">
+            <p class="testimonials__eyebrow">Нас выбирают</p>
+            <h2 class="testimonials__title">Отзывы клиентов</h2>
+            <p class="testimonials__subtitle">
+                Реальные истории компаний и специалистов, которые уже работают с нами.
+                Листайте карусель, чтобы увидеть больше впечатлений.
+            </p>
+
+            <div class="testimonials__carousel" role="region" aria-live="polite">
+                <button class="carousel__control carousel__control--prev" aria-label="Предыдущий отзыв">
+                    &#8592;
+                </button>
+
+                <div class="carousel__track-container">
+                    <ul class="carousel__track">
+                        <!-- Карточки генерируются JS -->
+                    </ul>
+                </div>
+
+                <button class="carousel__control carousel__control--next" aria-label="Следующий отзыв">
+                    &#8594;
+                </button>
+            </div>
+
+            <div class="carousel__indicators" role="tablist" aria-label="Список отзывов">
+                <!-- Точки генерируются JS -->
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" aria-label="Галерея проектов">
+        <div class="gallery__header">
+            <p class="gallery__eyebrow">Наглядно</p>
+            <h2 class="gallery__title">Свежее вдохновение</h2>
+            <p class="gallery__subtitle">
+                Каждый раз показываем новые визуалы. Кликните по кнопке, чтобы подгрузить очередную подборку.
+            </p>
+            <button class="gallery__refresh" id="refreshImages" type="button">Обновить изображения</button>
+        </div>
+
+        <div class="gallery__grid" id="images" aria-live="polite">
+            <!-- Изображения добавляются скриптом -->
+        </div>
+    </section>
+</body>
+</html>
+
