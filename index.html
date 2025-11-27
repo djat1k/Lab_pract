@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа №7 - jQuery vs Vanilla JS</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+</head>
+<body>
+    <header>
+        <h1>Лабораторная работа №7</h1>
+        <p>jQuery – «Что? Где? Когда?»</p>
+    </header>
+
+    <section class="mode-switcher" aria-label="Переключатель режима выполнения">
+        <h2>Выберите режим выполнения кода</h2>
+        <p class="mode-switcher__hint">Активным остаётся только выбранный стек, остальные обработчики игнорируются.</p>
+        <div class="mode-switcher__controls">
+            <label>
+                <input type="radio" name="js-mode" value="jquery" checked>
+                <span>jQuery</span>
+            </label>
+            <label>
+                <input type="radio" name="js-mode" value="vanilla">
+                <span>Vanilla JS</span>
+            </label>
+        </div>
+    </section>
+
+    <!-- Задача A: Вкладки (Tabs) -->
+    <section class="task-section" id="task-a">
+        <h2>Задача A: Переключатели контента (вкладки)</h2>
+        <div class="tabs-container">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="tab-1">О нас</button>
+                <button class="tab-btn" data-tab="tab-2">Отзывы</button>
+                <button class="tab-btn" data-tab="tab-3">Контакты</button>
+            </div>
+            <div class="tab-content active" id="tab-1">
+                <h3>О нас</h3>
+                <p>Мы - команда профессионалов, занимающихся веб-разработкой. Наша цель - создавать современные и удобные веб-приложения.</p>
+                <p>В этой лабораторной работе мы изучаем jQuery и сравниваем его с чистым JavaScript.</p>
+            </div>
+            <div class="tab-content" id="tab-2">
+                <h3>Отзывы</h3>
+                <p><strong>Иван Петров:</strong> "Отличная работа! Всё понятно и доступно объяснено."</p>
+                <p><strong>Мария Сидорова:</strong> "Полезная лабораторная работа, много нового узнала."</p>
+                <p><strong>Алексей Иванов:</strong> "Сравнение jQuery и Vanilla JS очень наглядно!"</p>
+            </div>
+            <div class="tab-content" id="tab-3">
+                <h3>Контакты</h3>
+                <p><strong>Email:</strong> info@example.com</p>
+                <p><strong>Телефон:</strong> +373 (533) 123-456</p>
+                <p><strong>Адрес:</strong> г. Тирасполь, ул. Примерная, д. 1</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Задача B: Плавная прокрутка -->
+    <section class="task-section" id="task-b">
+        <h2>Задача B: Плавная прокрутка к якорю</h2>
+        <nav class="smooth-scroll-nav">
+            <a href="#section-1" class="nav-link">Секция 1</a>
+            <a href="#section-2" class="nav-link">Секция 2</a>
+            <a href="#section-3" class="nav-link">Секция 3</a>
+            <a href="#task-a" class="nav-link">Вкладки</a>
+            <a href="#task-c" class="nav-link">AJAX</a>
+            <a href="#task-d" class="nav-link">jQuery UI</a>
+        </nav>
+        <div id="section-1" class="scroll-section">
+            <h3>Секция 1</h3>
+            <p>Это первая секция с плавной прокруткой. Кликните на ссылку в навигации, чтобы увидеть плавную анимацию прокрутки.</p>
+        </div>
+        <div id="section-2" class="scroll-section">
+            <h3>Секция 2</h3>
+            <p>Это вторая секция. Прокрутка работает как на jQuery, так и на чистом JavaScript.</p>
+        </div>
+        <div id="section-3" class="scroll-section">
+            <h3>Секция 3</h3>
+            <p>Это третья секция. Современные браузеры поддерживают нативную плавную прокрутку через scrollIntoView.</p>
+        </div>
+    </section>
+
+    <!-- Задача C: AJAX запросы -->
+    <section class="task-section" id="task-c">
+        <h2>Задача C: AJAX запросы и загрузка данных</h2>
+        <div class="ajax-container">
+            <button id="loadQuote" class="btn-primary">Загрузить цитату</button>
+            <blockquote id="quote">
+                <p class="quote-text">Нажмите кнопку, чтобы загрузить случайную цитату...</p>
+                <cite class="quote-author"></cite>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- Задача D: jQuery UI -->
+    <section class="task-section" id="task-d">
+        <h2>Задача D: Экосистема jQuery UI</h2>
+        <div class="jquery-ui-container">
+            <h3>Перетаскиваемый элемент (Draggable)</h3>
+            <div id="draggable" class="ui-widget-content draggable-box">
+                <p>Перетащи меня!</p>
+            </div>
+            
+            <h3>Календарь (Datepicker)</h3>
+            <div class="datepicker-container">
+                <label for="datepicker">Выберите дату:</label>
+                <input type="text" id="datepicker" placeholder="Кликните для выбора даты">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Лабораторная работа №7 - jQuery vs Vanilla JS</p>
+        <p>Приднестровский государственный университет им. Т.Г. Шевченко</p>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+</html>
+
