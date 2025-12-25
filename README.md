@@ -1,144 +1,16 @@
-Лабораторная работа №10
+# React + Vite
 
-Название выбранного проекта
-"Личный планировщик задач (Todo Pro)"
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-1. Списки задач ✅
-Что реализовано
+Currently, two official plugins are available:
 
-Проект поддерживает список задач, где каждая задача имеет:
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-текст;
+## React Compiler
 
-статус (выполнена / не выполнена);
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-дату создания / дату выполнения (если есть).
+## Expanding the ESLint configuration
 
-Где в проекте
-
-Компонент: TaskList.jsx
-
-Компонент одной задачи: TaskItem.jsx
-
-Добавление задач: AddTaskForm.jsx
-
-Как работает
-
-задачи хранятся в состоянии React;
-
-каждая задача отображается как отдельный компонент;
-
-изменение состояния задачи автоматически обновляет интерфейс.
-
-2. Фильтры (сегодня / завтра / все) ✅
-Что реализовано
-
-Реализована фильтрация задач по дате:
-
-Сегодня
-
-Завтра
-
-Все задачи
-
-Где в проекте
-
-Компонент: Filters.jsx
-
-Логика фильтрации: внутри TaskList.jsx
-
-Вспомогательные функции: utils/dateUtils.js
-
-Как работает
-
-выбранный фильтр хранится в состоянии;
-
-при изменении фильтра список задач пересчитывается;
-
-используются стандартные методы Date.
-
-3. Локальное сохранение (LocalStorage) ✅
-Что реализовано
-
-Все данные сохраняются локально в браузере, без сервера.
-
-Сохраняется:
-
-список задач;
-
-их статус;
-
-выбранный фильтр.
-
-Где в проекте
-
-Кастомный хук: useLocalStorage.js
-
-Как работает
-
-при изменении состояния данные автоматически записываются в localStorage;
-
-при загрузке приложения данные читаются из localStorage;
-
-данные не теряются при перезагрузке страницы.
-
-4. Мини-статистика (выполнено / осталось) ✅
-Что реализовано
-
-Отображается статистика:
-
-количество выполненных задач;
-
-количество оставшихся задач.
-
-Где в проекте
-
-Компонент: Statistics.jsx
-
-Как работает
-
-статистика вычисляется на основе массива задач;
-
-используется фильтрация по статусу задачи;
-
-обновляется автоматически при изменениях.
-
-5. Drag’n’Drop задач (опционально) ✅ / ⚠️
-Статус
-
-👉 Реализовано как опциональная функциональность
-(если преподаватель допускает опционально — проект требованиям соответствует).
-
-Где в проекте
-
-Компоненты: TaskList.jsx, TaskItem.jsx
-
-Используются события:
-
-onDragStart
-
-onDragOver
-
-onDrop
-
-Как работает
-
-пользователь может перетаскивать задачи мышью;
-
-порядок задач меняется в массиве состояния;
-
-новый порядок сохраняется в localStorage.
-
-Краткая таблица соответствия требованиям
-Требование	Статус	Где реализовано
-Списки задач	✅	TaskList, TaskItem
-Фильтры	✅	Filters, dateUtils
-Локальное сохранение	✅	useLocalStorage
-Мини-статистика	✅	Statistics
-Drag’n’Drop	✅ (опц.)	TaskList, TaskItem
-Итог
-
-📌 Проект полностью соответствует заданию
-📌 Все обязательные пункты реализованы
-📌 Drag’n’Drop присутствует как дополнительная возможность
-📌 Backend и API не требуются — приложение полностью автономное
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
