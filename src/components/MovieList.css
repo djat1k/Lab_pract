@@ -1,0 +1,20 @@
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.movie-list-empty {
+  text-align: center;
+  padding: 3rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.1em;
+}
+
+@media (prefers-color-scheme: light) {
+  .movie-list-empty {
+    color: rgba(0, 0, 0, 0.6);
+  }
+}
+
